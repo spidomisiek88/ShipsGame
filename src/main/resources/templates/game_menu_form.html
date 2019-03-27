@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Ships game menu</title>
+</head>
+<body>
+    <form action="/ships/menu" method="post" th:object="${gameModeMenuForm}"><div>
+        <table bgcolor="silver">
+            <tr>
+                <td>Wybierz tryb gry:</td>
+            </tr>
+            <tr>
+                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModePlayerToPlayer}">Gra dwuosobowa</td>
+            </tr>
+            <tr>
+                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModePlayerToComputer}">Gra jednoosobowa z komputerem</td>
+            </tr>
+            <tr>
+                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModeComputerToComputer}">Gra automaczyczna z komputerem</td>
+            </tr>
+            <tr>
+                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModeMultiplayer}">Gra wieloosobowa</td>
+            </tr>
+            <tr>
+                <td>Ponaj nazwę pierwszego gracza</td><td><input type="text" th:field="*{firstPlayerName}"></td>
+            </tr>
+            <tr>
+                <td>Ponaj nazwę drugirgo gracza</td><td><input type="text" th:field="*{secondPlayerName}"></td>
+            </tr>
+            <tr>
+                <td>Podaj wymiary planszy:</td>
+            </tr>
+            <tr>
+                <td>Podaj ilość pól poziomo</td><td><input type="number" th:field="*{gameMode}"></td>
+            </tr>
+            <tr>
+                <td>Podaj ilość pól pionowo</td><td><input type="number" th:field="*{gameMode}"></td>
+            </tr>
+            <tr>
+                <br>
+                <td colspan="3" align="center"><br>
+                    <input type="submit" value="Start">
+                    <input type="reset" value="Resetuj ustawienia">
+                </td>
+            </tr>
+        </table>
+    </div></form>
+</body>
+</html>
