@@ -1,19 +1,23 @@
 package pl.michalPajak.ShipsGame.models.enums;
 
 public enum GameMode {
-    PLAYERTOPLAYER(1, "Gra dwuosobowa", "PLAYERTOPLAYER"),
-    PLAYERTOCOMPUTER(2, "Gra jednoosobowa z komputerem", "PLAYERTOCOMPUTER"),
-    COMPUTERTOCOMPUTER(3, "Gra automaczyczna z komputerem", "COMPUTERTOCOMPUTER"),
-    MULTIPLAYER(4, "Gra wieloosobowa", "MULTIPLAYER");
+    PLAYERTOPLAYER(1, "Gra dwuosobowa", "PLAYERTOPLAYER", false, false),
+    PLAYERTOCOMPUTER(2, "Gra jednoosobowa z komputerem", "PLAYERTOCOMPUTER", false, true),
+    COMPUTERTOCOMPUTER(3, "Gra automaczyczna z komputerem", "COMPUTERTOCOMPUTER", true, true),
+    MULTIPLAYER(4, "Gra wieloosobowa", "MULTIPLAYER", false, false);
 
     private int id;
     private String description;
     private String name;
+    private boolean isFirstPlayerComputer;
+    private boolean isSecondPlayerComputer;
 
-    GameMode(int id, String description, String name) {
+    GameMode(int id, String description, String name, boolean firstPlayerIsComputer, boolean secondPlayerIsComputer) {
         this.id = id;
         this.description = description;
         this.name = name;
+        this.isFirstPlayerComputer = firstPlayerIsComputer;
+        this.isSecondPlayerComputer = secondPlayerIsComputer;
     }
 
     public int getId() {
@@ -26,6 +30,14 @@ public enum GameMode {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isFirstPlayerComputer() {
+        return isFirstPlayerComputer;
+    }
+
+    public boolean isSecondPlayerComputer() {
+        return isSecondPlayerComputer;
     }
 
     @Override

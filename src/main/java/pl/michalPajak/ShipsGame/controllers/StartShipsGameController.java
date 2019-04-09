@@ -5,11 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.michalPajak.ShipsGame.models.GameMenuForm;
+import pl.michalPajak.ShipsGame.models.forms.GameMenuForm;
 import pl.michalPajak.ShipsGame.models.enums.GameMode;
 
 @Controller
-public class ShipsGameController {
+public class StartShipsGameController {
 
     @GetMapping("/ships/menu")
     public String showGameModeMenuForm(Model model) {
@@ -26,7 +26,7 @@ public class ShipsGameController {
     @PostMapping("/ships/menu/game_mode")
     public String handlingGameModeMenuForm(@ModelAttribute GameMenuForm gameModeMenuForm, Model model) {
 
-
+        gs
 
         return "add_ships_form";
     }

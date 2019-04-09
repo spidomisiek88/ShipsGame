@@ -1,11 +1,9 @@
 package pl.michalPajak.ShipsGame.models.entities;
 
 import lombok.Data;
+import pl.michalPajak.ShipsGame.models.PlayersShipsBoard;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "player")
@@ -15,12 +13,13 @@ public class PlayerEntity{
     @Id
     @GeneratedValue
     private int id;
+    @Column(name = "is_computer")
     private int isComputer;
-//    private ShipsBoard playersBoard;
+    @Column(name = "player_name")
     private String name;
-    private String password;
-    private int score;
-    private int numberOfDots;
+    @OneToOne(mappedBy = "player")
+    private ScoreEntity score;
+    private PlayersShipsBoard playerShipsBoard;
 
 //    public boolean shot(PlayerEntity attackedPlayerEntity, int xCordinate, int yCordinate) {
 //        return attackedPlayerEntity.getPlayersBoard().deleteShipToBoard(xCordinate, yCordinate);

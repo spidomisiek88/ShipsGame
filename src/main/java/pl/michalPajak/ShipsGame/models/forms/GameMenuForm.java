@@ -1,4 +1,4 @@
-package pl.michalPajak.ShipsGame.models;
+package pl.michalPajak.ShipsGame.models.forms;
 
 import pl.michalPajak.ShipsGame.models.enums.GameMode;
 
