@@ -28,6 +28,6 @@ public class ShipsGameController {
 
 
 
-        return "add_ship_form";
+        return "add_ships_form";
     }
 }
