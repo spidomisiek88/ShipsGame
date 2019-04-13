@@ -2,11 +2,12 @@ package pl.michalPajak.ShipsGame.models;
 
 import lombok.Data;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Data
-public class PlayerShipsBoard {
+public class PlayersShipsBoard {
 
-    private Map<Integer, Map<Character, Integer>> shipsBoard;
+    private Map<Integer, Map<String, Integer>> shipsBoard;
 
 }

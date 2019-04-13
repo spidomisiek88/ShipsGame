@@ -3,8 +3,9 @@ package pl.michalPajak.ShipsGame.models.services;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.michalPajak.ShipsGame.models.Player;
+import pl.michalPajak.ShipsGame.models.PlayersShipsBoard;
 import pl.michalPajak.ShipsGame.models.entities.PlayerEntity;
-import pl.michalPajak.ShipsGame.models.enums.GameMode;
 import pl.michalPajak.ShipsGame.models.repositoris.PlayerRepository;
 
 import java.util.Optional;
@@ -16,22 +17,23 @@ public class PlayerService {
     @Autowired
     PlayerRepository playerRepository;
 
-    GameMode gameMode;
-
-    public PlayerEntity initializePlayer(String playerName, boolean isComputer) { //gameMenuForm.getFirstPlayerName(), GameMode.COMPUTERTOCOMPUTER.equals(gameMenuForm.getGameMode())
+    public Player initializePlayer(String playerName, boolean isComputer) {
         Optional<PlayerEntity> optionalPlayerEntity = playerRepository.findPlayerByName(playerName);
         PlayerEntity playerEntity;
 
-        if (!optionalPlayerEntity.isPresent()) {
+        if (!optionalPlayerEntity.isPresent())
             playerEntity = createPlayer(playerName, isComputer);
-        }
+        else
+            playerEntity = optionalPlayerEntity.get();
 
-        playerEntity = optionalPlayerEntity.get();
+        Player player = new Player();
+        player.setPlayerEntity(playerEntity);
+        player.setPlayerShipsBoard(new PlayersShipsBoard());
 
-        return playerEntity;
+        return player;
     }
 
-    public PlayerEntity createPlayer(String playerName, boolean isComputer) {
+    private PlayerEntity createPlayer(String playerName, boolean isComputer) {
         PlayerEntity playerEntity = new PlayerEntity();
         playerEntity.setName(playerName);
         playerEntity.setIsComputer(isComputer ? 1 : 0);

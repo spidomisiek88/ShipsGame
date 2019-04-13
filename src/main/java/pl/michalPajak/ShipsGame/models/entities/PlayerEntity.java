@@ -19,7 +19,6 @@ public class PlayerEntity{
     private String name;
     @OneToOne(mappedBy = "player")
     private ScoreEntity score;
-    private PlayersShipsBoard playerShipsBoard;
 
 //    public boolean shot(PlayerEntity attackedPlayerEntity, int xCordinate, int yCordinate) {
 //        return attackedPlayerEntity.getPlayersBoard().deleteShipToBoard(xCordinate, yCordinate);

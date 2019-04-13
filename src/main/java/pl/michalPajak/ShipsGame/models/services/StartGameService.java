@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.michalPajak.ShipsGame.models.GameBoard;
+import pl.michalPajak.ShipsGame.models.Player;
 import pl.michalPajak.ShipsGame.models.forms.GameMenuForm;
 import pl.michalPajak.ShipsGame.models.entities.PlayerEntity;
 
@@ -19,14 +20,14 @@ public class StartGameService {
     public GameBoard startGame(GameMenuForm gameMenuForm) {
         shipsBoard = new GameBoard();
 
-        PlayerEntity firstPlayerEntity = playerService.initializePlayer(gameMenuForm.getFirstPlayerName(),
+        Player firstPlayer = playerService.initializePlayer(gameMenuForm.getFirstPlayerName(),
                 gameMenuForm.getGameMode().isFirstPlayerComputer());
 
-        PlayerEntity secondPlayerEntity = playerService.initializePlayer(gameMenuForm.getSecondPlayerName(),
+        Player secondPlayer = playerService.initializePlayer(gameMenuForm.getSecondPlayerName(),
                 gameMenuForm.getGameMode().isSecondPlayerComputer());
 
-        shipsBoard.setFirstPlayer(firstPlayerEntity);
-        shipsBoard.setSecondPlayer(secondPlayerEntity);
+        shipsBoard.setFirstPlayer(firstPlayer.getPlayerEntity());
+        shipsBoard.setSecondPlayer(secondPlayer.getPlayerEntity());
 
 
 
