@@ -15,9 +15,11 @@ public class StartGameService {
 
     @Autowired
     PlayerService playerService;
+    @Autowired
+    PlayersShipsBoardService playersShipsBoardService;
     GameBoard shipsBoard;
 
-    public GameBoard startGame(GameMenuForm gameMenuForm) {
+    public GameBoard initializeGameBoard(GameMenuForm gameMenuForm) {
         shipsBoard = new GameBoard();
 
         Player firstPlayer = playerService.initializePlayer(gameMenuForm.getFirstPlayerName(),
@@ -28,8 +30,12 @@ public class StartGameService {
 
         shipsBoard.setFirstPlayer(firstPlayer.getPlayerEntity());
         shipsBoard.setSecondPlayer(secondPlayer.getPlayerEntity());
-
-
+        shipsBoard.setFirstPlayersBoard(playersShipsBoardService
+                .initializePlayersShipsBoard(gameMenuForm.getNumberOfFieldsHorizontally(),
+                        gameMenuForm.getNumberOfFieldsVertically()));
+        shipsBoard.setSecondPlayersBoard(playersShipsBoardService
+                .initializePlayersShipsBoard(gameMenuForm.getNumberOfFieldsHorizontally(),
+                        gameMenuForm.getNumberOfFieldsVertically()));
 
         return shipsBoard;
     }

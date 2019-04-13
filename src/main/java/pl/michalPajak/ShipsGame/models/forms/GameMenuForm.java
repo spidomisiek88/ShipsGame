@@ -15,8 +15,8 @@ public class GameMenuForm {
         this.gameMode = GameMode.PLAYERTOCOMPUTER;
         this.firstPlayerName = "Player1";
         this.secondPlayerName = "Player2";
-        this.numberOfFieldsHorizontally = 0;
-        this.numberOfFieldsVertically = 0;
+        this.numberOfFieldsHorizontally = 10;
+        this.numberOfFieldsVertically = 10;
     }
 
     public GameMode getGameMode() {
