@@ -14,12 +14,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import pl.michalPajak.ShipsGame.models.Player;
 import pl.michalPajak.ShipsGame.models.PlayersShipsBoard;
 import pl.michalPajak.ShipsGame.models.entities.PlayerEntity;
-import pl.michalPajak.ShipsGame.models.entities.ScoreEntity;
 import pl.michalPajak.ShipsGame.models.repositoris.PlayerRepository;
 import pl.michalPajak.ShipsGame.models.services.PlayerService;
 
-import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
