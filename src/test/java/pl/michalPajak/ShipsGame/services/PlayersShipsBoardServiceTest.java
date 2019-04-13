@@ -26,10 +26,13 @@ public class PlayersShipsBoardServiceTest {
 
         PlayersShipsBoard expectesPlayersShipsBoard = new PlayersShipsBoard();
         expectesPlayersShipsBoard.setShipsBoard(createShipsBoard());
+        expectesPlayersShipsBoard.setShipsCounter(0);
 
-        Assertions.assertEquals(expectesPlayersShipsBoard.getShipsBoard(), playersShipsBoardService
-                        .initializePlayersShipsBoard(numberOfFieldsHorizontally, numberOfFieldsVertically)
-                        .getShipsBoard());
+        PlayersShipsBoard actualPlayersShipsBoard = playersShipsBoardService
+                .initializePlayersShipsBoard(numberOfFieldsHorizontally, numberOfFieldsVertically);
+
+        Assertions.assertEquals(expectesPlayersShipsBoard.getShipsBoard(), actualPlayersShipsBoard.getShipsBoard());
+        Assertions.assertEquals(expectesPlayersShipsBoard.getShipsCounter(), actualPlayersShipsBoard.getShipsCounter());
     }
 
     private Map<Integer, Map<String, Integer>> createShipsBoard() {

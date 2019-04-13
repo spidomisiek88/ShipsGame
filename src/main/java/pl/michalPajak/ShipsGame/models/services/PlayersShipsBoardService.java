@@ -17,6 +17,7 @@ public class PlayersShipsBoardService {
 
         playersShipsBoard = new PlayersShipsBoard();
         playersShipsBoard.setShipsBoard(new HashMap<>());
+        playersShipsBoard.setShipsCounter(0);
 
         for (int i = 0; i < numberOfFieldsVertically; i++) {
             Map<String, Integer> rowOnBoard = new HashMap<>();
