@@ -10,9 +10,6 @@ import pl.michalPajak.ShipsGame.ShipsBoardCreator;
 import pl.michalPajak.ShipsGame.models.PlayersShipsBoard;
 import pl.michalPajak.ShipsGame.models.services.PlayersShipsBoardService;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class PlayersShipsBoardServiceTest {

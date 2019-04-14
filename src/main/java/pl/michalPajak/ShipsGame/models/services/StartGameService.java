@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import pl.michalPajak.ShipsGame.models.GameBoard;
 import pl.michalPajak.ShipsGame.models.Player;
 import pl.michalPajak.ShipsGame.models.forms.GameMenuForm;
-import pl.michalPajak.ShipsGame.models.entities.PlayerEntity;
 
 @Service
 @Data
