@@ -19,7 +19,7 @@ public class StartShipsGameController {
     @GetMapping("/ships/menu")
     public String showGameModeMenuForm(Model model) {
 
-        model.addAttribute("gameModeMenuForm", new GameMenuForm());
+        model.addAttribute("gameMenuForm", new GameMenuForm());
         model.addAttribute("gameModePlayerToPlayer", GameMode.PLAYERTOPLAYER);
         model.addAttribute("gameModePlayerToComputer", GameMode.PLAYERTOCOMPUTER);
         model.addAttribute("gameModeComputerToComputer", GameMode.COMPUTERTOCOMPUTER);
@@ -33,6 +33,6 @@ public class StartShipsGameController {
 
         startGameService.initializeGameBoard(gameModeMenuForm);
 
-        return "add_ships_form";
+        return "addition_ships_form";
     }
 }

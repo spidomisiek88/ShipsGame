@@ -2,11 +2,11 @@ package pl.michalPajak.ShipsGame.models.services;
 
 import java.util.Random;
 
-public class ShipsBoard {
+public class OldShipsBoard {
     private int[][] playersBoard;
     private int shipsCounter;
 
-    public ShipsBoard(int dimensionBoard) {
+    public OldShipsBoard(int dimensionBoard) {
         this.playersBoard = new int[dimensionBoard][dimensionBoard];
         this.shipsCounter = 0;
     }

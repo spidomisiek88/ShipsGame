@@ -5,6 +5,54 @@
     <title>Add ships to board</title>
 </head>
 <body>
-
+<form action="/ships/addition" method="post" th:object="${additionShipsForm}"><div>
+    <table bgcolor="silver">
+        <tr>
+            <td>Wybierz współrzędne statku który chcesz umieścić na planszy:</td>
+        </tr>
+        <tr>
+            <td>Współrzędna pozioma</td>
+            <td>
+                <select name="horizontallyCoordinates" size="1" th:field="*{horizontallyCoordinates}">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>F</option>
+                    <option>G</option>
+                    <option>H</option>
+                    <option>I</option>
+                    <option>J</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Współrzędna pionowa</td>
+            <td>
+                <select name="verticallyCoordinates" size="1" th:field="*{verticallyCoordinates}">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <br>
+            <td colspan="3" align="center"><br>
+                <input type="button" value="Dodaj">
+                <input type="submit" value="Start">
+                <input type="reset" value="Resetuj ustawienia">
+            </td>
+        </tr>
+    </table>
+</div></form>
 </body>
 </html>

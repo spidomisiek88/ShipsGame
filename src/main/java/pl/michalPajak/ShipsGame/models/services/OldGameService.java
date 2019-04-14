@@ -8,13 +8,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class GameService {
+public class OldGameService {
     private GameMode gameMode;
     private Random random;
     private List<PlayerEntity> playerEntities;
     private boolean isGameFinish;
 
-    public GameService() {
+    public OldGameService() {
         this.random = new Random();
         this.playerEntities = new ArrayList<>();
         this.isGameFinish = false;
@@ -41,53 +41,53 @@ public class GameService {
         this.gameMode = gameMode;
     }
 
-    private PlayerEntity createComputerPlayer(String playerName, int dimensionGameBoard) {
-        return new PlayerEntity(playerName, dimensionGameBoard, true);
-    }
+//    private PlayerEntity createComputerPlayer(String playerName, int dimensionGameBoard) {
+//        return new PlayerEntity(playerName, dimensionGameBoard, true);
+//    }
+//
+//    private PlayerEntity createPlayer(String playerName, int dimensionGameBoard) {
+//        return new PlayerEntity(playerName, dimensionGameBoard, false);
+//    }
 
-    private PlayerEntity createPlayer(String playerName, int dimensionGameBoard) {
-        return new PlayerEntity(playerName, dimensionGameBoard, false);
-    }
-
-    public void setTwoPlayers(String firstPlayerName, String secondPlayerName, int dimensionGameBoard) {
-        playerEntities.add(createPlayer(firstPlayerName, dimensionGameBoard));
-        playerEntities.add(createPlayer(secondPlayerName, dimensionGameBoard));
-    }
-
-    public void setTwoComputerPlayers(String firstPlayerName, String secondPlayerName, int dimensionGameBoard) {
-        playerEntities.add(createComputerPlayer(firstPlayerName, dimensionGameBoard));
-        playerEntities.add(createComputerPlayer(secondPlayerName, dimensionGameBoard));
-    }
-
-    public void setPlayersAndComputerPlayers(String playerName, String computerPlayerName, int dimensionGameBoard) {
-        playerEntities.add(createPlayer(playerName, dimensionGameBoard));
-        playerEntities.add(createComputerPlayer(computerPlayerName, dimensionGameBoard));
-    }
-
-    public void setMultiplayer(List<String> playersNames, List<String> computerPlayersNames, int dimensionGameBoard) {
-        for (String playerName : playersNames) {
-            playerEntities.add(createPlayer(playerName, dimensionGameBoard));
-        }
-
-        for (String computerName : computerPlayersNames) {
-            playerEntities.add(createComputerPlayer(computerName, dimensionGameBoard));
-        }
-    }
+//    public void setTwoPlayers(String firstPlayerName, String secondPlayerName, int dimensionGameBoard) {
+//        playerEntities.add(createPlayer(firstPlayerName, dimensionGameBoard));
+//        playerEntities.add(createPlayer(secondPlayerName, dimensionGameBoard));
+//    }
+//
+//    public void setTwoComputerPlayers(String firstPlayerName, String secondPlayerName, int dimensionGameBoard) {
+//        playerEntities.add(createComputerPlayer(firstPlayerName, dimensionGameBoard));
+//        playerEntities.add(createComputerPlayer(secondPlayerName, dimensionGameBoard));
+//    }
+//
+//    public void setPlayersAndComputerPlayers(String playerName, String computerPlayerName, int dimensionGameBoard) {
+//        playerEntities.add(createPlayer(playerName, dimensionGameBoard));
+//        playerEntities.add(createComputerPlayer(computerPlayerName, dimensionGameBoard));
+//    }
+//
+//    public void setMultiplayer(List<String> playersNames, List<String> computerPlayersNames, int dimensionGameBoard) {
+//        for (String playerName : playersNames) {
+//            playerEntities.add(createPlayer(playerName, dimensionGameBoard));
+//        }
+//
+//        for (String computerName : computerPlayersNames) {
+//            playerEntities.add(createComputerPlayer(computerName, dimensionGameBoard));
+//        }
+//    }
 
     private int throwOfDice() {
         return random.nextInt(6) + 1;
     }
 
-    private void setPlayersChanceToStart() {
-        for (PlayerEntity playerEntity : playerEntities) {
-            playerEntity.setNumberOfDots(throwOfDice());
-        }
-    }
+//    private void setPlayersChanceToStart() {
+//        for (PlayerEntity playerEntity : playerEntities) {
+//            playerEntity.setNumberOfDots(throwOfDice());
+//        }
+//    }
 
-    public void setOrderOfPlayers() {
-        setPlayersChanceToStart();
-        Collections.sort(playerEntities);
-    }
+//    public void setOrderOfPlayers() {
+//        setPlayersChanceToStart();
+//        Collections.sort(playerEntities);
+//    }
 
 
 
