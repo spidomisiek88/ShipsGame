@@ -29,9 +29,9 @@ public class StartShipsGameController {
     }
 
     @PostMapping("/ships/menu/game_mode")
-    public String handlingGameModeMenuForm(@ModelAttribute GameMenuForm gameModeMenuForm, Model model) {
+    public String handlingGameModeMenuForm(@ModelAttribute GameMenuForm gameMenuForm) {
 
-        startGameService.initializeGameBoard(gameModeMenuForm);
+        startGameService.initializeGameBoard(gameMenuForm);
 
         return "addition_ships_form";
     }

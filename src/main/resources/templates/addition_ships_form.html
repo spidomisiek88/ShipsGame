@@ -8,6 +8,9 @@
 <form action="/ships/addition" method="post" th:object="${additionShipsForm}"><div>
     <table bgcolor="silver">
         <tr>
+            <td><span th:text="'Gracz ' "></span>Gracz  współrzędne statku który chcesz umieścić na planszy:</td>
+        </tr>
+        <tr>
             <td>Wybierz współrzędne statku który chcesz umieścić na planszy:</td>
         </tr>
         <tr>
@@ -47,8 +50,8 @@
         <tr>
             <br>
             <td colspan="3" align="center"><br>
-                <input type="button" value="Dodaj">
-                <input type="submit" value="Start">
+                <input type="submit" name="add" value="Dodaj">
+                <input type="submit" name="start" value="Start">
                 <input type="reset" value="Resetuj ustawienia">
             </td>
         </tr>

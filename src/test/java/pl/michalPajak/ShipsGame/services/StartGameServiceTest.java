@@ -22,6 +22,7 @@ import pl.michalPajak.ShipsGame.models.repositoris.PlayerRepository;
 import pl.michalPajak.ShipsGame.models.services.PlayerService;
 import pl.michalPajak.ShipsGame.models.services.StartGameService;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @SpringBootTest
@@ -69,10 +70,8 @@ public class StartGameServiceTest {
         secondPlayersShipsBoard.setShipsCounter(0);
 
         GameBoard expectesGameBoard = new GameBoard();
-        expectesGameBoard.setFirstPlayer(firstPlayerEntity);
-        expectesGameBoard.setFirstPlayersBoard(firstPlayersShipsBoard);
-        expectesGameBoard.setSecondPlayer(secondPlayerEntity);
-        expectesGameBoard.setSecondPlayersBoard(secondPlayersShipsBoard);
+        expectesGameBoard.addPlayerWithBoard(firstPlayerEntity, firstPlayersShipsBoard);
+        expectesGameBoard.addPlayerWithBoard(secondPlayerEntity, secondPlayersShipsBoard);
 
         Mockito.when(playerRepository.findPlayerByName("Spido1")).thenReturn(Optional.empty());
         Mockito.when(playerRepository.findPlayerByName("Spido2")).thenReturn(Optional.empty());

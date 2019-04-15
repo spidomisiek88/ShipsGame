@@ -2,11 +2,11 @@ package pl.michalPajak.ShipsGame.models;
 
 import java.util.Map;
 
-final class PlayerEntry<K, V> implements Map.Entry<K, V> {
+public final class Entry<K, V> implements Map.Entry<K, V> {
     private final K key;
     private V value;
 
-    public PlayerEntry(K key, V value) {
+    public Entry(K key, V value) {
         this.key = key;
         this.value = value;
     }

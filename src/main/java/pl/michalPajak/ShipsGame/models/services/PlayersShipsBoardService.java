@@ -11,11 +11,9 @@ import java.util.Map;
 @Data
 public class PlayersShipsBoardService {
 
-    PlayersShipsBoard playersShipsBoard;
-
     public PlayersShipsBoard initializePlayersShipsBoard(int numberOfFieldsHorizontally, int numberOfFieldsVertically) {
 
-        playersShipsBoard = new PlayersShipsBoard();
+        PlayersShipsBoard playersShipsBoard = new PlayersShipsBoard();
         playersShipsBoard.setShipsBoard(new HashMap<>());
         playersShipsBoard.setShipsCounter(0);
 
@@ -38,6 +36,14 @@ public class PlayersShipsBoardService {
             }
             playersShipsBoard.getShipsBoard().put(i, rowOnBoard);
         }
+
+        return playersShipsBoard;
+    }
+
+    public PlayersShipsBoard addShipBoard (PlayersShipsBoard playersShipsBoard, String horizontallyCoordinates, Integer verticallyCoordinates) {
+
+        playersShipsBoard.getShipsBoard().get(verticallyCoordinates).put(horizontallyCoordinates, 1);
+        playersShipsBoard.setShipsCounter(playersShipsBoard.getShipsCounter() + 1);
 
         return playersShipsBoard;
     }

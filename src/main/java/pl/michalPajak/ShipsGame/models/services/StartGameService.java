@@ -7,19 +7,24 @@ import org.springframework.stereotype.Service;
 import pl.michalPajak.ShipsGame.models.GameBoard;
 import pl.michalPajak.ShipsGame.models.Player;
 import pl.michalPajak.ShipsGame.models.forms.GameMenuForm;
+import pl.michalPajak.ShipsGame.models.sessions.GameSession;
+
+import java.util.ArrayList;
 
 @Service
 @Data
 public class StartGameService {
 
+    private final static int FIRST_PLAYER_INDEX = 0;
+
     @Autowired
     PlayerService playerService;
     @Autowired
     PlayersShipsBoardService playersShipsBoardService;
-    GameBoard shipsBoard;
+    @Autowired
+    GameSession gameSession;
 
     public GameBoard initializeGameBoard(GameMenuForm gameMenuForm) {
-        shipsBoard = new GameBoard();
 
         Player firstPlayer = playerService.initializePlayer(gameMenuForm.getFirstPlayerName(),
                 gameMenuForm.getGameMode().isFirstPlayerComputer());
@@ -27,16 +32,17 @@ public class StartGameService {
         Player secondPlayer = playerService.initializePlayer(gameMenuForm.getSecondPlayerName(),
                 gameMenuForm.getGameMode().isSecondPlayerComputer());
 
-        shipsBoard.setFirstPlayer(firstPlayer.getPlayerEntity());
-        shipsBoard.setSecondPlayer(secondPlayer.getPlayerEntity());
-        shipsBoard.setFirstPlayersBoard(playersShipsBoardService
-                .initializePlayersShipsBoard(gameMenuForm.getNumberOfFieldsHorizontally(),
-                        gameMenuForm.getNumberOfFieldsVertically()));
-        shipsBoard.setSecondPlayersBoard(playersShipsBoardService
+        gameSession.getGameBoard().addPlayerWithBoard(firstPlayer.getPlayerEntity(), playersShipsBoardService
                 .initializePlayersShipsBoard(gameMenuForm.getNumberOfFieldsHorizontally(),
                         gameMenuForm.getNumberOfFieldsVertically()));
 
-        return shipsBoard;
+        gameSession.getGameBoard().addPlayerWithBoard(secondPlayer.getPlayerEntity(), playersShipsBoardService
+                .initializePlayersShipsBoard(gameMenuForm.getNumberOfFieldsHorizontally(),
+                        gameMenuForm.getNumberOfFieldsVertically()));
+
+        gameSession.setWhichPlayersTurn(FIRST_PLAYER_INDEX);
+
+        return gameSession.getGameBoard();
     }
 
 
