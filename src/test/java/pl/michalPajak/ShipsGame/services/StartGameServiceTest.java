@@ -4,10 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +19,6 @@ import pl.michalPajak.ShipsGame.models.repositoris.PlayerRepository;
 import pl.michalPajak.ShipsGame.models.services.PlayerService;
 import pl.michalPajak.ShipsGame.models.services.StartGameService;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 @SpringBootTest
@@ -30,10 +26,13 @@ import java.util.Optional;
 @AutoConfigureMockMvc
 public class StartGameServiceTest {
 
-    @Mock
+//    @Mock
+    @Spy
     PlayerRepository playerRepository;
+
     @InjectMocks
     PlayerService playerService;
+    @InjectMocks
     @Autowired
     StartGameService startGameService;
 
@@ -44,10 +43,11 @@ public class StartGameServiceTest {
 
     @Test
     public void shouldInitializeGameBoard() {
+
         GameMenuForm gameMenuForm = new GameMenuForm();
         gameMenuForm.setFirstPlayerName("Spido1");
         gameMenuForm.setSecondPlayerName("Spido2");
-        gameMenuForm.setGameMode(GameMode.PLAYERTOCOMPUTER);
+        gameMenuForm.setGameMode(GameMode.PLAYERTOCOMPUTER.getName());
 
         PlayerEntity firstPlayerEntity = new PlayerEntity();
         firstPlayerEntity.setId(1);
@@ -75,6 +75,10 @@ public class StartGameServiceTest {
 
         Mockito.when(playerRepository.findPlayerByName("Spido1")).thenReturn(Optional.empty());
         Mockito.when(playerRepository.findPlayerByName("Spido2")).thenReturn(Optional.empty());
+//        Mockito.when(playerRepository.save(Mockito.any(PlayerEntity.class))).thenReturn(firstPlayerEntity);
+//        Mockito.when(playerRepository.save(Mockito.any(PlayerEntity.class))).thenReturn(secondPlayerEntity);
+        Mockito.doReturn(firstPlayerEntity).when(Mockito.spy(playerRepository)).save(firstPlayerEntity);
+        Mockito.doReturn(secondPlayerEntity).when(Mockito.spy(playerRepository)).save(secondPlayerEntity);
 
         GameBoard actualGameBoard = startGameService.initializeGameBoard(gameMenuForm);
 

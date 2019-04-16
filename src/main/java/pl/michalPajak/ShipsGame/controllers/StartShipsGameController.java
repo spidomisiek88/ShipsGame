@@ -20,15 +20,15 @@ public class StartShipsGameController {
     public String showGameModeMenuForm(Model model) {
 
         model.addAttribute("gameMenuForm", new GameMenuForm());
-        model.addAttribute("gameModePlayerToPlayer", GameMode.PLAYERTOPLAYER);
-        model.addAttribute("gameModePlayerToComputer", GameMode.PLAYERTOCOMPUTER);
-        model.addAttribute("gameModeComputerToComputer", GameMode.COMPUTERTOCOMPUTER);
-        model.addAttribute("gameModeMultiplayer", GameMode.MULTIPLAYER);
+//        model.addAttribute("gameModePlayerToPlayer", GameMode.PLAYERTOPLAYER);
+//        model.addAttribute("gameModePlayerToComputer", GameMode.PLAYERTOCOMPUTER);
+//        model.addAttribute("gameModeComputerToComputer", GameMode.COMPUTERTOCOMPUTER);
+//        model.addAttribute("gameModeMultiplayer", GameMode.MULTIPLAYER);
 
         return "game_menu_form";
     }
 
-    @PostMapping("/ships/menu/game_mode")
+    @PostMapping("/ships/menu")
     public String handlingGameModeMenuForm(@ModelAttribute GameMenuForm gameMenuForm) {
 
         startGameService.initializeGameBoard(gameMenuForm);

@@ -23,7 +23,6 @@ public class GameBoard {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof GameBoard)) return false;
-        boolean equalsResult = false;
         GameBoard gameBoard = (GameBoard) o;
         if (getPlayers().size() != gameBoard.getPlayers().size())
             return false;

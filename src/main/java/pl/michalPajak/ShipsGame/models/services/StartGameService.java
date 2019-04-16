@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.michalPajak.ShipsGame.models.GameBoard;
 import pl.michalPajak.ShipsGame.models.Player;
+import pl.michalPajak.ShipsGame.models.enums.GameMode;
 import pl.michalPajak.ShipsGame.models.forms.GameMenuForm;
 import pl.michalPajak.ShipsGame.models.sessions.GameSession;
-
-import java.util.ArrayList;
 
 @Service
 @Data
@@ -27,10 +26,10 @@ public class StartGameService {
     public GameBoard initializeGameBoard(GameMenuForm gameMenuForm) {
 
         Player firstPlayer = playerService.initializePlayer(gameMenuForm.getFirstPlayerName(),
-                gameMenuForm.getGameMode().isFirstPlayerComputer());
+                GameMode.valueOf(gameMenuForm.getGameMode()).isFirstPlayerComputer());
 
         Player secondPlayer = playerService.initializePlayer(gameMenuForm.getSecondPlayerName(),
-                gameMenuForm.getGameMode().isSecondPlayerComputer());
+                GameMode.valueOf(gameMenuForm.getGameMode()).isSecondPlayerComputer());
 
         gameSession.getGameBoard().addPlayerWithBoard(firstPlayer.getPlayerEntity(), playersShipsBoardService
                 .initializePlayersShipsBoard(gameMenuForm.getNumberOfFieldsHorizontally(),

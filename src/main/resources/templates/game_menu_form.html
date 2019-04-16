@@ -11,16 +11,16 @@
                 <td>Wybierz tryb gry:</td>
             </tr>
             <tr>
-                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModePlayerToPlayer}">Gra dwuosobowa</td>
+                <td><input type="radio" th:field="*{gameMode}" value="PLAYERTOPLAYER">Gra dwuosobowa</td>
             </tr>
             <tr>
-                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModePlayerToComputer}">Gra jednoosobowa z komputerem</td>
+                <td><input type="radio" th:field="*{gameMode}" value="PLAYERTOCOMPUTER">Gra jednoosobowa z komputerem</td>
             </tr>
             <tr>
-                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModeComputerToComputer}">Gra automaczyczna z komputerem</td>
+                <td><input type="radio" th:field="*{gameMode}" value="COMPUTERTOCOMPUTER">Gra automaczyczna z komputerem</td>
             </tr>
             <tr>
-                <td><input type="radio" th:field="*{gameMode}" th:value="${gameModeMultiplayer}">Gra wieloosobowa</td>
+                <td><input type="radio" th:field="*{gameMode}" value="MULTIPLAYER">Gra wieloosobowa</td>
             </tr>
             <tr>
                 <td>Ponaj nazwę pierwszego gracza</td><td><input type="text" th:field="*{firstPlayerName}"></td>

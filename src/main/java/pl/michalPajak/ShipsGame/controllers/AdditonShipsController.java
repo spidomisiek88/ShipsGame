@@ -42,4 +42,10 @@ public class AdditonShipsController {
 
         return "redirect:/ships/addition";
     }
+
+    @PostMapping(value = "/ships/addition", params = "start")
+    public String startGame() {
+
+        return "/ships/play/board";
+    }
 }
